@@ -1,5 +1,7 @@
 # Exploring MongoDB aggregate
 
+> kindly run the products-seed.js file first in the seeders folder. Thank you
+
 ### aggregate pipelines I have explored and used in this file:
 
 - $match
