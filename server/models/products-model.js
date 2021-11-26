@@ -1,4 +1,3 @@
-const mongodb = require('mongodb');
 const { getDatabase } = require('../config/mongo');
 
 class ProductsModel {
@@ -79,6 +78,12 @@ class ProductsModel {
               averageStock: {
                 $avg: '$stock',
               },
+              maxStock: {
+                $max: '$stock',
+              },
+              min: {
+                $min: '$stock',
+              },
             },
           },
         ])
@@ -94,6 +99,12 @@ class ProductsModel {
               },
               averageStock: {
                 $avg: '$stock',
+              },
+              maxStock: {
+                $max: '$stock',
+              },
+              min: {
+                $min: '$stock',
               },
             },
           },

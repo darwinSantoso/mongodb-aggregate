@@ -5,8 +5,6 @@ class ProductsController {
     try {
       let products;
 
-      console.log(req.query);
-
       if (req.query.categoryId) {
         products = await ProductsModel.getProductsByCategoryId(
           req.query.categoryId
