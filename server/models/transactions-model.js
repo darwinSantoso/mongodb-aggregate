@@ -10,7 +10,7 @@ class TransactionsModel {
     const transactions = await transactionsCollection
       .aggregate([
         { $match: { status: status } },
-        { $group: { _id: '$_id', totalQuantity: { $sum: '$qty' } } },
+        // { $group: { _id: '$_id', totalQuantity: { $sum: '$qty' } } },
       ])
       .toArray();
 
@@ -26,8 +26,8 @@ class TransactionsModel {
         {
           $lookup: {
             from: 'products',
-            localField: 'name',
-            foreignField: 'productName',
+            localField: 'productName',
+            foreignField: 'name',
             as: 'product',
           },
         },
@@ -63,8 +63,8 @@ class TransactionsModel {
         {
           $lookup: {
             from: 'products',
-            localField: 'name',
-            foreignField: 'productName',
+            localField: 'productName',
+            foreignField: 'name',
             as: 'product',
           },
         },
@@ -90,9 +90,9 @@ class TransactionsModel {
         {
           $group: {
             _id: null,
-            bestSellingProduct: {
-              $max: '$productQuantity',
-            },
+            // bestSellingProduct: {
+            //   $max: '$productQuantity',
+            // },
             averageRevenue: {
               $avg: '$revenue',
             },

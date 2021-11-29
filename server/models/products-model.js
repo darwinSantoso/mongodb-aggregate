@@ -15,6 +15,9 @@ class ProductsModel {
             as: 'category',
           },
         },
+        // {
+        //   $unwind: '$category',
+        // },
         {
           $sort: {
             stock: 1,
